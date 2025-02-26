@@ -54,7 +54,57 @@
         </div>
     </div>
 </section>
+</body>
+</html>
 
-<script src="script.js"></script>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Joyería Elegante</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="carrito">
+    <h2>Carrito de Compras</h2>
+    <div id="lista-carrito"></div>
+    <h3>Total: $<span id="total"></span></h3>
+    <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+</section>
+
+<script>
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    function mostrarCarrito() {
+        let listaCarrito = document.getElementById("lista-carrito");
+        let total = 0;
+        listaCarrito.innerHTML = "";
+
+        carrito.forEach((producto, index) => {
+            total += producto.precio;
+            listaCarrito.innerHTML += `<p>${producto.nombre} - $${producto.precio} <button onclick="eliminarProducto(${index})">X</button></p>`;
+        });
+
+        document.getElementById("total").innerText = total;
+        document.getElementById("cart-count").innerText = carrito.length;
+    }
+
+    function eliminarProducto(index) {
+        carrito.splice(index, 1);
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        mostrarCarrito();
+    }
+
+    function vaciarCarrito() {
+        carrito = [];
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        mostrarCarrito();
+    }
+
+    document.addEventListener("DOMContentLoaded", mostrarCarrito);
+</script>
+
 </body>
 </html>
