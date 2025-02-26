@@ -1,1 +1,1 @@
-# Shop-jewelry-
+# Lumarie's Shop Jewelry 
