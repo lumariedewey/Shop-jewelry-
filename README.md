@@ -74,37 +74,5 @@
     <button onclick="vaciarCarrito()">Vaciar Carrito</button>
 </section>
 
-<script>
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-    function mostrarCarrito() {
-        let listaCarrito = document.getElementById("lista-carrito");
-        let total = 0;
-        listaCarrito.innerHTML = "";
-
-        carrito.forEach((producto, index) => {
-            total += producto.precio;
-            listaCarrito.innerHTML += `<p>${producto.nombre} - $${producto.precio} <button onclick="eliminarProducto(${index})">X</button></p>`;
-        });
-
-        document.getElementById("total").innerText = total;
-        document.getElementById("cart-count").innerText = carrito.length;
-    }
-
-    function eliminarProducto(index) {
-        carrito.splice(index, 1);
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-        mostrarCarrito();
-    }
-
-    function vaciarCarrito() {
-        carrito = [];
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-        mostrarCarrito();
-    }
-
-    document.addEventListener("DOMContentLoaded", mostrarCarrito);
-</script>
-
 </body>
 </html>
