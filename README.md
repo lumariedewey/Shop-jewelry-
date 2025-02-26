@@ -26,3 +26,35 @@
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Joyería Elegante</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="productos">
+    <h2>Nuestras Joyas</h2>
+    <div class="lista-productos">
+        <div class="producto">
+            <img src="img/anillo.jpg" alt="Anillo de Oro">
+            <h3>Anillo de Oro</h3>
+            <p>$120</p>
+            <button onclick="agregarAlCarrito('Anillo de Oro', 120)">Añadir al carrito</button>
+        </div>
+        <div class="producto">
+            <img src="img/collar.jpg" alt="Collar de Plata">
+            <h3>Collar de Plata</h3>
+            <p>$90</p>
+            <button onclick="agregarAlCarrito('Collar de Plata', 90)">Añadir al carrito</button>
+        </div>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
